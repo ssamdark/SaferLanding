@@ -2835,7 +2835,7 @@ img {
 
 .footer-logo-img { height: 18px; width: auto; display: block; filter: brightness(0) opacity(0.4); }
 
-.footer-info { text-align: right; font-size: 14px; line-height: 2; color: rgba(0,0,0,0.5); }
+.footer-info { text-align: right; font-size: 14px; line-height: 2; color: rgba(0,0,0,0.75); }
 
 .footer-grid-bg {
   background-image: none;
