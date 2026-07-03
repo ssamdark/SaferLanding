@@ -82,43 +82,115 @@
                 <div class="anim-db-sico" style="--si:6"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="11" width="14" height="11" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg></div>
                 <div class="anim-db-sico" style="--si:8"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 6 5 6 21 6"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2"/></svg></div>
               </aside>
-              <div class="anim-db-main">
-                <div class="anim-db-ttl-wrap">
-                  <span class="anim-db-ttl">통합개선현황 <em>Integrated improvement status</em></span>
-                </div>
-                <div class="anim-db-card">
-                  <div class="anim-db-card-hdr">
-                    <div class="anim-db-lgnd">
-                      <span class="anim-db-li" style="--li:0;--lc:#647DEB">개선계획중</span>
-                      <span class="anim-db-li" style="--li:1;--lc:#339DF3">개선조치중</span>
-                      <span class="anim-db-li" style="--li:2;--lc:#FBA833">재조치</span>
-                      <span class="anim-db-li" style="--li:3;--lc:#FC4966">기한초과</span>
-                      <span class="anim-db-li" style="--li:4;--lc:#02BE81">완료</span>
+              <div class="anim-db-main anim-db-main--v2">
+                <div class="db2-grid">
+
+                  <!-- CARD 1: 통합 개선 현황 -->
+                  <div class="db2-card db2-card--donut" style="--ci:0">
+                    <div class="db2-card-hdr">
+                      <h4 class="db2-title" style="margin-left:8px">통합 개선 현황</h4>
+                      <span class="db2-select">From last 7 days <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 3.5L5 6.5L8 3.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                    </div>
+                    <div class="db2-donut-wrap">
+                      <svg class="db2-donut" viewBox="0 0 170 170" width="170" height="170">
+                        <circle class="db2-donut-bg" cx="85" cy="85" r="68"/>
+                        <circle class="db2-donut-seg" style="--idx:0;--seg-len:166.15" stroke="#16C79A" cx="85" cy="85" r="68" stroke-dashoffset="0"/>
+                        <circle class="db2-donut-seg" style="--idx:1;--seg-len:47.47" stroke="#3E82F7" cx="85" cy="85" r="68" stroke-dashoffset="-166.15"/>
+                        <circle class="db2-donut-seg" style="--idx:2;--seg-len:35.61" stroke="#7B6EF5" cx="85" cy="85" r="68" stroke-dashoffset="-213.62"/>
+                        <circle class="db2-donut-seg" style="--idx:3;--seg-len:71.21" stroke="#EE5FA6" cx="85" cy="85" r="68" stroke-dashoffset="-249.23"/>
+                        <circle class="db2-donut-seg" style="--idx:4;--seg-len:106.82" stroke="#FDB022" cx="85" cy="85" r="68" stroke-dashoffset="-320.44"/>
+                      </svg>
+                      <div class="db2-donut-center"><span>총</span><b>72</b><span>건</span></div>
+                    </div>
+                    <ul class="db2-legend">
+                      <li style="--idx:0"><i style="background:#16C79A"></i><span>개선계획중</span><b>28</b><em>38.9%</em></li>
+                      <li style="--idx:1"><i style="background:#3E82F7"></i><span>개선조치중</span><b>8</b><em>11.1%</em></li>
+                      <li style="--idx:2"><i style="background:#7B6EF5"></i><span>개선재조치</span><b>6</b><em>8.3%</em></li>
+                      <li style="--idx:3"><i style="background:#EE5FA6"></i><span>기한완료</span><b>12</b><em>16.7%</em></li>
+                      <li style="--idx:4"><i style="background:#FDB022"></i><span>개선</span><b>18</b><em>25.0%</em></li>
+                    </ul>
+                  </div>
+
+                  <!-- CARD 2: 주요 위험 요인 TOP 5 -->
+                  <div class="db2-col" style="--ci:1">
+                    <div class="db2-banner">
+                      <span class="db2-banner-icon db2-banner-icon--rocket"><img src="images/icon_01.png" alt="" width="20" height="20"></span>
+                      <div class="db2-banner-text">
+                        <b>AI 실시간 위험 단계 판단 연동 완료</b>
+                        <p>온습도 장치 및 유해가스 농도 측정 데이터 수신 중입니다.</p>
+                      </div>
+                    </div>
+                    <div class="db2-card">
+                      <div class="db2-card-hdr">
+                        <h4 class="db2-title" style="margin-left:8px">주요 위험 요인 TOP 5</h4>
+                        <span class="db2-select">More analysis <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 3.5L5 6.5L8 3.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                      </div>
+                      <span class="db2-subtext" style="margin-left:8px">From last 7 days</span>
+                      <div class="db2-chart-area">
+                        <div class="db2-gridlines"><span></span><span></span><span></span><span></span><span></span></div>
+                        <ul class="db2-barlist">
+                          <li style="--idx:0"><span class="db2-bar-rank">1. 추락</span><div class="db2-bar-track"><div class="db2-bar-fill" style="--w:92%;background:rgba(246,37,136,0.7);border:1.5px solid #F62588"><em>32.0%</em></div></div></li>
+                          <li style="--idx:1"><span class="db2-bar-rank">2. 끼임</span><div class="db2-bar-track"><div class="db2-bar-fill" style="--w:70%;background:rgba(115,8,182,0.7);border:1.5px solid #7308B6"><em>24.5%</em></div></div></li>
+                          <li style="--idx:2"><span class="db2-bar-rank">3. 화재</span><div class="db2-bar-track"><div class="db2-bar-fill" style="--w:57%;background:rgba(60,12,164,0.7);border:1.5px solid #3C0CA4"><em>20.0%</em></div></div></li>
+                          <li style="--idx:3"><span class="db2-bar-rank">4. 부딪힘</span><div class="db2-bar-track"><div class="db2-bar-fill" style="--w:46%;background:rgba(62,56,209,0.7);border:1.5px solid #3E38D1"><em>16.0%</em></div></div></li>
+                          <li style="--idx:4"><span class="db2-bar-rank">5. 감전</span><div class="db2-bar-track"><div class="db2-bar-fill" style="--w:22%;background:rgba(67,97,242,0.7);border:1.5px solid #4361F2"><em>7.5%</em></div></div></li>
+                        </ul>
+                      </div>
+                      <div class="db2-barlegend">
+                        <span><i style="background:#F62588"></i><b>32.0%</b> 추락</span>
+                        <span><i style="background:#7308B6"></i><b>24.5%</b> 끼임</span>
+                        <span><i style="background:#3C0CA4"></i><b>20.0%</b> 화재</span>
+                      </div>
                     </div>
                   </div>
-                  <div class="anim-db-chart-area">
-                    <div class="anim-db-yax">
-                      <span>20</span><span>15</span><span>10</span><span>5</span><span>0</span>
+
+                  <!-- CARD 3: 정기 위험성 평가 현황 -->
+                  <div class="db2-col" style="--ci:2">
+                    <div class="db2-card">
+                    <div class="db2-card-hdr">
+                      <h4 class="db2-title">정기 위험성 평가 현황</h4>
                     </div>
-                    <div class="anim-db-chart-col">
-                      <div class="anim-db-ci">
-                        <div class="anim-db-gls">
-                          <div class="anim-db-gl"></div><div class="anim-db-gl"></div>
-                          <div class="anim-db-gl"></div><div class="anim-db-gl"></div>
-                          <div class="anim-db-gl"></div>
-                        </div>
-                        <div class="anim-db-groups" id="animDbGrps"></div>
-                        <div class="anim-db-tt" id="animDbTT">
-                          <div class="anim-db-tt-row"><i style="background:#647DEB"></i><span>개선계획중 : <b>16건</b></span></div>
-                          <div class="anim-db-tt-row"><i style="background:#339DF3"></i><span>개선조치중 : <b>3건</b></span></div>
-                          <div class="anim-db-tt-row"><i style="background:#FBA833"></i><span>재조치 : <b>3건</b></span></div>
-                          <div class="anim-db-tt-row"><i style="background:#FC4966"></i><span>기한초과 : <b>2건</b></span></div>
-                          <div class="anim-db-tt-row"><i style="background:#02BE81"></i><span>완료 : <b>11건</b></span></div>
+                    <div class="db2-banner db2-banner--alt">
+                      <span class="db2-banner-icon db2-banner-icon--spark"><img src="images/icon_02.png" alt="" width="18" height="18"></span>
+                      <p>Smart 4-Step Risk Assessment via AI-Powered Dashboard</p>
+                    </div>
+                    <div class="db2-statgrid">
+                      <div class="db2-stat" style="--idx:0">
+                        <span class="db2-stat-label"><b>1.</b> 사전준비</span>
+                        <strong class="db2-stat-value">48.5%</strong>
+                        <div class="db2-stat-row">
+                          <span class="db2-stat-sub">Progress</span>
+                          <svg class="db2-miniring" width="26" height="26" viewBox="0 0 36 36"><circle cx="18" cy="18" r="15" fill="none" stroke="#EEF1F6" stroke-width="4"/><circle style="--ring-len:45.7" cx="18" cy="18" r="15" fill="none" stroke="#12B76A" stroke-width="4" stroke-linecap="round" transform="rotate(-90 18 18)"/></svg>
                         </div>
                       </div>
-                      <div class="anim-db-xax" id="animDbXax"></div>
+                      <div class="db2-stat" style="--idx:1">
+                        <span class="db2-stat-label"><b>2.</b> 유해·위험요인 파악</span>
+                        <strong class="db2-stat-value">82.3%</strong>
+                        <div class="db2-stat-row">
+                          <span class="db2-stat-sub">Hazards</span>
+                          <svg class="db2-minispark" width="40" height="18" viewBox="0 0 60 24" fill="none"><path d="M2 18 L12 10 L22 14 L32 4 L42 12 L52 6 L58 9" stroke="#4361F2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        </div>
+                      </div>
+                      <div class="db2-stat" style="--idx:2">
+                        <span class="db2-stat-label"><b>3.</b> 위험성 결정</span>
+                        <strong class="db2-stat-value">26.1%</strong>
+                        <div class="db2-stat-row">
+                          <span class="db2-stat-sub">Decided</span>
+                          <svg class="db2-minispark" width="40" height="18" viewBox="0 0 60 24" fill="none"><path d="M2 8 L12 14 L22 6 L32 16 L42 9 L52 15 L58 11" stroke="#C026D3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        </div>
+                      </div>
+                      <div class="db2-stat" style="--idx:3">
+                        <span class="db2-stat-label"><b>4.</b> 감소대책 수립 및 실시</span>
+                        <strong class="db2-stat-value">32.0%</strong>
+                        <div class="db2-stat-row">
+                          <span class="db2-stat-sub">Action</span>
+                          <svg class="db2-miniring" width="26" height="26" viewBox="0 0 36 36"><circle cx="18" cy="18" r="15" fill="none" stroke="#EEF1F6" stroke-width="4"/><circle style="--ring-len:30.2" cx="18" cy="18" r="15" fill="none" stroke="#F79009" stroke-width="4" stroke-linecap="round" transform="rotate(-90 18 18)"/></svg>
+                        </div>
+                      </div>
+                    </div>
                     </div>
                   </div>
+
                 </div>
               </div>
             </div>

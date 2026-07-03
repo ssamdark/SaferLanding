@@ -558,113 +558,6 @@ if (emailForm) {
   const el = document.getElementById('animDB');
   if (!el) return;
 
-  const cats = [
-    '위험성평가','아차사고','사고관리','순회점검','비상대응훈련','안전제안',
-    '법규준수도평가','청취조사','안전점검','정부기관시정요구','위험신고','안전보건교육'
-  ];
-  const colors = ['#647DEB','#339DF3','#FBA833','#FC4966','#02BE81'];
-  const CHART_H = 210;
-  const MAX_VAL = 25;
-  const barData = [
-    [1,5,4,7,10],   // 위험성평가
-    [4,8,4,6,6],    // 아차사고
-    [11,5,2,2,6],   // 사고관리
-    [3,5,4,6,6],    // 순회점검
-    [16,3,3,2,11],  // 비상대응훈련
-    [2,2,3,1,6],    // 안전제안
-    [7,5,4,12,9],   // 법규준수도평가
-    [5,4,3,3,2],    // 청취조사
-    [6,5,3,13,11],  // 안전점검
-    [3,4,3,4,7],    // 정부기관시정요구
-    [10,4,3,1,3],   // 위험신고
-    [11,5,3,6,2]    // 안전보건교육
-  ];
-
-  const grpsEl = document.getElementById('animDbGrps');
-  const xaxEl = document.getElementById('animDbXax');
-
-  barData.forEach(function(vals, gi) {
-    var grp = document.createElement('div');
-    grp.className = 'anim-db-grp';
-    vals.forEach(function(v, bi) {
-      var bar = document.createElement('div');
-      bar.className = 'anim-db-bar';
-      var h = Math.round(Math.min(v, MAX_VAL) / MAX_VAL * CHART_H);
-      bar.style.cssText = 'height:' + h + 'px;background:' + colors[bi] + ';--gi:' + gi + ';--bi:' + bi;
-      grp.appendChild(bar);
-    });
-    grpsEl.appendChild(grp);
-  });
-
-  cats.forEach(function(c) {
-    var lbl = document.createElement('span');
-    lbl.textContent = c;
-    xaxEl.appendChild(lbl);
-  });
-
-  const ttEl = document.getElementById('animDbTT');
-  const ttLabels = ['개선계획중','개선조치중','재조치','기한초과','완료'];
-  let ttIndex = 4;
-
-  function applyTooltip(gi) {
-    const grps = grpsEl.querySelectorAll('.anim-db-grp');
-    if (!grps[gi] || !ttEl) return;
-
-    const ciEl = grpsEl.parentElement;
-    const grpRect = grps[gi].getBoundingClientRect();
-    const ciRect  = ciEl.getBoundingClientRect();
-
-    const centerX = grpRect.left - ciRect.left + grpRect.width / 2;
-    const ttW = ttEl.offsetWidth || 140;
-    let leftPos = centerX - ttW / 2;
-    leftPos = Math.max(4, Math.min(leftPos, ciRect.width - ttW - 4));
-    ttEl.style.left = leftPos + 'px';
-
-    let titleEl = ttEl.querySelector('.anim-db-tt-title');
-    if (!titleEl) {
-      titleEl = document.createElement('div');
-      titleEl.className = 'anim-db-tt-title';
-      ttEl.insertBefore(titleEl, ttEl.firstChild);
-    }
-    titleEl.textContent = cats[gi];
-
-    const rows = ttEl.querySelectorAll('.anim-db-tt-row span');
-    barData[gi].forEach(function(v, i) {
-      if (rows[i]) rows[i].innerHTML = ttLabels[i] + ' : <b>' + v + '건</b>';
-    });
-
-    grps.forEach(function(g, i) {
-      g.style.opacity = i === gi ? '1' : '0.35';
-    });
-  }
-
-  function showTooltip(gi, fadeTransition) {
-    if (!ttEl) return;
-    if (!fadeTransition) {
-      applyTooltip(gi);
-      ttEl.style.transition = 'opacity 0.5s ease';
-      ttEl.style.opacity = '1';
-      ttEl.style.transform = 'translateY(0)';
-      return;
-    }
-    // Fade out → update → fade in
-    ttEl.style.transition = 'opacity 0.18s ease';
-    ttEl.style.opacity = '0';
-    setTimeout(function() {
-      applyTooltip(gi);
-      ttEl.style.transition = 'opacity 0.4s ease';
-      ttEl.style.opacity = '1';
-    }, 200);
-  }
-
-  function startCycling() {
-    showTooltip(ttIndex, false);
-    setInterval(function() {
-      ttIndex = (ttIndex + 1) % barData.length;
-      showTooltip(ttIndex, true);
-    }, 2400);
-  }
-
   var obs = new IntersectionObserver(function(entries) {
     if (entries[0].isIntersecting) {
       el.classList.add('is-visible');
@@ -677,10 +570,6 @@ if (emailForm) {
           character.classList.add('is-visible');
         }, 600);
       }
-
-      // Wait for all entrance animations to finish before cycling
-      var delay = 800 + (barData.length - 1) * 140 + 600;
-      setTimeout(startCycling, delay);
     }
   }, { threshold: 0.15 });
   obs.observe(el);
