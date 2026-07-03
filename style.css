@@ -679,6 +679,12 @@ img {
   display: flex;
   align-items: center;
   justify-content: center;
+  animation: anim-db-bell-pulse 2.2s infinite;
+}
+@keyframes anim-db-bell-pulse {
+  0% { box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.55); }
+  70% { box-shadow: 0 0 0 6px rgba(239, 68, 68, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(239, 68, 68, 0); }
 }
 .anim-db-ham {
   display: flex;
@@ -971,11 +977,15 @@ img {
   margin-bottom: 6px;
 }
 .db2-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
   font-size: 18px;
   font-weight: 700;
   color: #1a2747;
   margin: 0;
 }
+.db2-title-icon { width: 20px; height: 20px; flex-shrink: 0; }
 .db2-select {
   display: flex;
   align-items: center;
@@ -1043,7 +1053,16 @@ img {
   transition-delay: calc(1.35s + var(--ci, 0) * 0.18s + var(--idx, 0) * 0.07s);
 }
 .anim-db.is-visible .db2-legend li { opacity: 1; transform: none; }
-.db2-legend i { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; }
+.db2-legend i {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  transform: scale(0);
+  transition: transform 0.4s cubic-bezier(0.34, 1.6, 0.64, 1);
+  transition-delay: calc(1.4s + var(--ci, 0) * 0.18s + var(--idx, 0) * 0.07s);
+}
+.anim-db.is-visible .db2-legend i { transform: scale(1); }
 .db2-legend span { width: 72px; font-size: 13px; }
 .db2-legend b { font-weight: 700; color: #333; font-size: 14px; width: 28px; text-align: right; margin-left: 60px; }
 .db2-legend em { font-style: normal; color: #9aa0ab; font-size: 14px; width: 50px; text-align: right; }
@@ -1068,6 +1087,16 @@ img {
   align-items: center;
   justify-content: center;
 }
+@keyframes db2-float-bob {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-3px); }
+}
+.db2-banner-icon--rocket img { animation: db2-float-bob 2.6s ease-in-out infinite; }
+@keyframes db2-twinkle {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.55; transform: scale(0.82); }
+}
+.db2-banner-icon--spark img { animation: db2-twinkle 1.8s ease-in-out infinite; }
 .db2-banner-text { min-width: 0; }
 .db2-banner-text b { display: block; font-size: 16px; font-weight: 700; color: #2B2F77; margin-bottom: 4px; }
 .db2-banner-text p { margin: 0; font-size: 14px; color: #9a9db3; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }

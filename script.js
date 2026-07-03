@@ -558,6 +558,26 @@ if (emailForm) {
   const el = document.getElementById('animDB');
   if (!el) return;
 
+  function animateCount(node, target, opts) {
+    opts = opts || {};
+    var duration = opts.duration || 1000;
+    var decimals = opts.decimals || 0;
+    var suffix = opts.suffix || '';
+    var delay = opts.delay || 0;
+    setTimeout(function() {
+      var start = null;
+      function step(ts) {
+        if (!start) start = ts;
+        var p = Math.min((ts - start) / duration, 1);
+        var eased = 1 - Math.pow(1 - p, 3);
+        node.textContent = (target * eased).toFixed(decimals) + suffix;
+        if (p < 1) requestAnimationFrame(step);
+        else node.textContent = target.toFixed(decimals) + suffix;
+      }
+      requestAnimationFrame(step);
+    }, delay);
+  }
+
   var obs = new IntersectionObserver(function(entries) {
     if (entries[0].isIntersecting) {
       el.classList.add('is-visible');
@@ -570,6 +590,17 @@ if (emailForm) {
           character.classList.add('is-visible');
         }, 600);
       }
+
+      // 도넛 중앙 숫자 카운트업
+      var donutNum = el.querySelector('.db2-donut-center b');
+      if (donutNum) animateCount(donutNum, 72, { duration: 1100, delay: 900 });
+
+      // 통계 카드 퍼센트 카운트업
+      el.querySelectorAll('.db2-stat-value').forEach(function(node, i) {
+        var target = parseFloat(node.textContent);
+        if (isNaN(target)) return;
+        animateCount(node, target, { duration: 1000, decimals: 1, suffix: '%', delay: 1350 + i * 90 });
+      });
     }
   }, { threshold: 0.15 });
   obs.observe(el);
