@@ -2788,8 +2788,8 @@ img {
    ============================ */
 .patent-grid {
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  gap: 20px;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 16px;
   margin-top: 80px;
   margin-bottom: 100px;
 }
@@ -2803,12 +2803,13 @@ img {
 
 .patent-card__img {
   width: 100%;
-  max-width: 240px;
+  max-width: 200px;
   object-fit: contain;
 }
 
 .patent-card__label {
-  font-size: 18px;
+  width: 100%;
+  font-size: 15px;
   font-weight: 600;
   text-align: center;
   color: #1a1a1a;
