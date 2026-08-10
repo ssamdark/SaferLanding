@@ -591,6 +591,13 @@ if (emailForm) {
         }, 600);
       }
 
+      var subscribeBtn = document.getElementById('floatSubscribe');
+      if (subscribeBtn) {
+        setTimeout(function() {
+          subscribeBtn.classList.add('is-visible');
+        }, 600);
+      }
+
       // 도넛 중앙 숫자 카운트업
       var donutNum = el.querySelector('.db2-donut-center b');
       if (donutNum) animateCount(donutNum, 72, { duration: 1100, delay: 900 });

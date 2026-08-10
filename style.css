@@ -160,6 +160,11 @@ img {
   background-color: var(--color-cloud-canvas);
 }
 
+
+.btn-nav-subscribe:hover {
+  background-color: var(--gray-300);
+}
+
 /* ============================
    DOTTED GRID BACKGROUND
    ============================ */
@@ -578,6 +583,7 @@ img {
 /* Hero Dashboard */
 .hero-dashboard-wrapper .container {
   padding: 0;
+  position: relative;
 }
 
 .hero-dashboard-wrapper {
@@ -2956,6 +2962,60 @@ img {
   font-size: 14px;
   color: rgba(0,0,0,0.35);
   text-align: right;
+}
+
+/* ============================
+   FLOATING SUBSCRIBE BUTTON
+   ============================ */
+.float-subscribe {
+  position: fixed;
+  right: 60px;
+  bottom: 40px;
+  z-index: 500;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background-color: var(--color-midnight-ink);
+  color: var(--color-paper-white);
+  border-radius: var(--radius-buttons);
+  padding: 12px 48px;
+  font-family: var(--font-korean);
+  font-size: var(--text-small);
+  font-weight: 600;
+  line-height: 1.4;
+  border: none;
+  text-decoration: none;
+  white-space: nowrap;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.18);
+  opacity: 0;
+  transition: opacity 0.4s ease 1s, transform 0.18s ease;
+}
+
+.float-subscribe.is-visible {
+  opacity: 1;
+  animation:
+    float-subscribe-alpha 1.8s ease-in-out 1.4s infinite,
+    float-subscribe-bounce 1.8s ease-in-out 1.4s infinite;
+}
+
+@keyframes float-subscribe-alpha {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.8; }
+}
+
+@keyframes float-subscribe-bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-4px); }
+}
+
+.float-subscribe:hover {
+  animation-play-state: paused;
+  transform: translateY(-1px);
+}
+
+@media (max-width: 1100px) {
+  .float-subscribe { display: none; }
 }
 
 /* ============================
