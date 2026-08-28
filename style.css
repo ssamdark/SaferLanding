@@ -1261,7 +1261,7 @@ img {
   gap: 52px;
   padding: 0 26px;
   flex-shrink: 0;
-  animation: marquee-scroll 90s linear infinite;
+  animation: marquee-scroll 284s linear infinite;
 }
 
 .marquee-inner img {
