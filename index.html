@@ -30,8 +30,12 @@
 
         <div class="nav-actions">
           <a href="#" class="btn-primary btn-sm btn-muted">문의하기</a>
-          <a href="#" class="btn-nav-outlined">로그인</a>
-          <a href="#" class="btn-primary btn-sm btn-outline-primary">회원가입</a>
+          <!-- 제품으로 들어가는 길. 같은 창에서 넘어갑니다 —
+               로그인은 「떠나는 것」이 아니라 「들어가는 것」이라 창을 새로 띄우지 않습니다.
+               ※ 지금은 연습용 주소(db--)입니다. 발표용과 합치면 db-- 를 떼세요. -->
+          <a href="https://db--duegosafer-go.netlify.app/login.html" class="btn-nav-outlined">로그인</a>
+          <!-- ?join=1 — 로그인 화면이 **가입 모드로 바로** 열립니다 -->
+          <a href="https://db--duegosafer-go.netlify.app/login.html?join=1" class="btn-primary btn-sm btn-outline-primary">회원가입</a>
         </div>
 
         <button class="nav-hamburger" id="navHamburger" aria-label="메뉴 열기">
